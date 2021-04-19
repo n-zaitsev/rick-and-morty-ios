@@ -1,0 +1,13 @@
+# Template information section
+name: "swifty_mvvm"
+summary: "Swift Coordinator"
+author: "Improve Digital"
+version: "1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+# Coordinator
+- {name: Coordinator/Coordinator.swift, path: Code/Coordinator/coordinator.swift.liquid}
+- {name: Coordinator/CoordinatorAssembly.swift, path: Code/Coordinator/assembly.swift.liquid}

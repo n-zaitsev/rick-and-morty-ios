@@ -1,0 +1,34 @@
+//
+//  {{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Swinject
+
+class {{ module_info.name }}ModuleAssembly: Assembly {
+
+public func assemble(container: Container) {
+        container.register(ModuleFactory<{{ module_info.name }}ViewController>.self, name: {{ module_info.name }}ViewController.className) { r in
+            return ModuleFactory<{{ module_info.name }}ViewController>(handler: {
+                return r.resolve({{ module_info.name }}ViewController.self)!
+            })
+        }
+        
+        container.register({{ module_info.name }}ViewController.self) { r in
+            let c: {{ module_info.name }}ViewController = .fromStoryboard()
+
+            c.viewModel = r.resolve({{ module_info.name }}ViewModel.self)
+
+            return c
+        }
+        
+        container.register({{ module_info.name }}ViewModel.self) { r in
+            let c = {{ module_info.name }}ViewModel()
+
+            return c
+        }
+    }
+}

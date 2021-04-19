@@ -1,0 +1,22 @@
+# Template information section
+name: "swifty_mvvm"
+summary: "Swift MVVM module"
+author: "Improve Digital"
+version: "1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+# ViewController
+- {name: ViewController/ViewController.swift, path: Code/ViewController/viewcontroller.swift.liquid}
+- {name: ViewController/ViewController.xib, path: Code/ViewController/viewcontroller.xib.liquid}
+
+# ViewModel
+- {name: ViewModel/ViewModel.swift, path: Code/ViewModel/viewmodel.swift.liquid}
+
+# View
+- {name: View/View.swift, path: Code/View/view.swift.liquid}
+
+# Assembly
+- {name: Assembly/ModuleAssembly.swift, path: Code/Assembly/assembly.swift.liquid}
