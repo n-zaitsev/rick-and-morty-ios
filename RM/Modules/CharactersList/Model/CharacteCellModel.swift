@@ -13,6 +13,7 @@ class CharacterCellModel: NSObject, CharacterCellConfigurator {
     var portrait: String
     var gender: String
     var species: String
+    var status: String
 
     init(character: Character) {
         characterId = String(character.id)
@@ -20,5 +21,6 @@ class CharacterCellModel: NSObject, CharacterCellConfigurator {
         portrait = character.image
         gender = character.gender.rawValue
         species = character.species.rawValue
+        status = character.status.rawValue
     }
 }

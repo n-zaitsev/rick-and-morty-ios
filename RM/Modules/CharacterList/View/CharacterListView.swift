@@ -12,9 +12,9 @@ class CharacterListView: UIView {
     @IBOutlet private var tableView: UITableView!
     private var dataSource: CharacterTableViewDataSource!
     var goToDetails: ((CellConfigurator) -> Void)?
-    var getCharactersFromPage: ((String) -> Void)?
+    var getCharactersFromPage: ((String?) -> Void)?
 
-    func decorate(goToDetailsClosure: ((CellConfigurator) -> Void)? = nil, getCharactersFromPage: ((String) -> Void)? = nil) {
+    func decorate(goToDetailsClosure: ((CellConfigurator) -> Void)? = nil, getCharactersFromPage: ((String?) -> Void)? = nil) {
         // Decoration part
         goToDetails = goToDetailsClosure
         self.getCharactersFromPage = getCharactersFromPage

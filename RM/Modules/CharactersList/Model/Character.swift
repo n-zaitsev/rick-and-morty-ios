@@ -17,7 +17,6 @@ struct CharactersResponce: Codable {
 struct Info: Codable {
     let count, pages: Int
     let next: String
-    let prev: JSONNull?
 }
 
 // MARK: - Result
@@ -53,6 +52,14 @@ struct Location: Codable {
 enum Species: String, Codable {
     case alien = "Alien"
     case human = "Human"
+    case humanoid = "Humanoid"
+    case poopybutthole = "Poopybutthole"
+    case mythologicalCreature = "Mythological Creature"
+    case animal = "Animal"
+    case robot = "Robot"
+    case cronenberg = "Cronenberg"
+    case disease = "Disease"
+    case unknown
 }
 
 enum Status: String, Codable {

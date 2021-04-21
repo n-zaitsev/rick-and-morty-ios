@@ -13,10 +13,10 @@ class CharacterTableViewDataSource: NSObject {
     private var models = CharacterSectionModel(characters: [], nextPage: "1")
     private weak var tableView: UITableView?
     var goToDetails: ((CellConfigurator) -> Void)?
-    var getCharactersFromPage: ((String) -> Void)?
+    var getCharactersFromPage: ((String?) -> Void)?
     init(tableView: UITableView,
          goToDetailsClosure: ((CellConfigurator) -> Void)? = nil,
-         getCharactersFromPage: ((String) -> Void)? = nil)
+         getCharactersFromPage: ((String?) -> Void)? = nil)
     {
         self.tableView = tableView
         self.getCharactersFromPage = getCharactersFromPage
@@ -37,8 +37,10 @@ extension CharacterTableViewDataSource: UITableViewDataSource {
         let count = models.characters.count
         if count > 1 {
             let lastElement = count - 1
-            if indexPath.row == lastElement {
-                getCharactersFromPage?(models.nextPage)
+            if let nextPage = models.nextPage,
+               indexPath.row == lastElement
+            {
+                getCharactersFromPage?(nextPage)
             }
         }
 

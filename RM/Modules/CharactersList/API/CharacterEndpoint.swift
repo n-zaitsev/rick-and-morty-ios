@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 enum CharacterEndpoint: APIConfiguration {
-    case getCharactersWithPage(_ page: String)
+    case getCharactersWithPage(_ page: String?)
 
     var method: HTTPMethod {
         switch self {
@@ -20,15 +20,18 @@ enum CharacterEndpoint: APIConfiguration {
 
     var path: String {
         switch self {
-        case let .getCharactersWithPage(page):
-            return RequestURLs.characters + "page=" + page
+        case .getCharactersWithPage:
+            return RequestURLs.characters
         }
     }
 
-    var parameters: Parameters? {
+    var parameters: Params {
         switch self {
-        case .getCharactersWithPage:
-            return nil
+        case let .getCharactersWithPage(page):
+            if let page = page {
+                return .url([RequestParams.characters.page: page])
+            }
+            return .body([:])
         }
     }
 
@@ -38,12 +41,17 @@ enum CharacterEndpoint: APIConfiguration {
         // HTTP Method
         urlRequest.httpMethod = method.rawValue
         // Parameters
-        if let parameters = parameters {
-            do {
-                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
-            } catch {
-                throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
+        switch parameters {
+        case let .body(params):
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
+
+        case let .url(params):
+            let queryParams = params.map { pair in
+                URLQueryItem(name: pair.key, value: "\(pair.value)")
             }
+            var components = URLComponents(string: url.appendingPathComponent(path).absoluteString)
+            components?.queryItems = queryParams
+            urlRequest.url = components?.url
         }
 
         return urlRequest

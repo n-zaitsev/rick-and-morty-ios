@@ -12,7 +12,7 @@ class CharacterListViewController: UIViewController {
     var viewModel: CharacterListViewModel!
     @IBOutlet var rootView: CharacterListView!
     var goToDetails: ((CellConfigurator) -> Void)?
-    var getCharactersFromPage: ((String) -> Void)?
+    var getCharactersFromPage: ((String?) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()

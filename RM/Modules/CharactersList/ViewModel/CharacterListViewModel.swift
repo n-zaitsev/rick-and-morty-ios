@@ -17,12 +17,12 @@ class CharacterListViewModel: NSObject {
 
     override init() {
         super.init()
-        getCharactersWithPage(models.nextPage)
+        getCharactersWithPage(models.nextPage ?? "1")
     }
 
     var didUpdate: (() -> Void)?
 
-    func getCharactersWithPage(_ page: String) {
+    func getCharactersWithPage(_ page: String?) {
         CharacterAPIClient.getCharactersWithPage(page) { result in
             switch result {
             case let .failure(error):

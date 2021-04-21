@@ -17,7 +17,7 @@ class CharacterAPIClient {
             }
     }
 
-    static func getCharactersWithPage(_ page: String, completion: @escaping (Result<CharactersResponce, AFError>) -> Void) {
+    static func getCharactersWithPage(_ page: String?, completion: @escaping (Result<CharactersResponce, AFError>) -> Void) {
         performRequest(route: CharacterEndpoint.getCharactersWithPage(page), completion: completion)
     }
 }

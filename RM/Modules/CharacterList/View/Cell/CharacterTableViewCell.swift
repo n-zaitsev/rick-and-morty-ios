@@ -11,8 +11,8 @@ import UIKit
 class CharacterTableViewCell: UITableViewCell {
     @IBOutlet private var portraitImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel!
-    @IBOutlet private var genderImageView: UIImageView!
-    @IBOutlet private var speciesImageView: UIImageView!
+    @IBOutlet private var genderLabel: UILabel!
+    @IBOutlet private var statusLabel: UILabel!
 }
 
 extension CharacterTableViewCell: ConfigurableRow {
@@ -23,8 +23,8 @@ extension CharacterTableViewCell: ConfigurableRow {
         portraitImageView.kf.setImage(with: URL(string: configurator.portrait),
                                       placeholder: UIImage(named: "PlaceholderImage"))
         nameLabel.text = configurator.name
-        genderImageView.image = UIImage(named: configurator.gender)
-        speciesImageView.image = UIImage(named: configurator.species)
+        genderLabel.text = configurator.gender
+        statusLabel.text = configurator.status
         return self
     }
 }

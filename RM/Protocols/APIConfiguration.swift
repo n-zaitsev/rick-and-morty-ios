@@ -7,8 +7,14 @@
 
 import Alamofire
 import Foundation
+
 protocol APIConfiguration: URLRequestConvertible {
     var method: HTTPMethod { get }
     var path: String { get }
-    var parameters: Parameters? { get }
+    var parameters: Params { get }
+}
+
+enum Params {
+    case body(_: Parameters)
+    case url(_: Parameters)
 }

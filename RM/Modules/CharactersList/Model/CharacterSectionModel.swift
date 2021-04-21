@@ -9,5 +9,5 @@ import Foundation
 
 struct CharacterSectionModel {
     var characters: [CellConfigurator]
-    var nextPage: String
+    var nextPage: String?
 }
