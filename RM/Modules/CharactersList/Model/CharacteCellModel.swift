@@ -14,7 +14,7 @@ class CharacterCellModel: NSObject, CharacterCellConfigurator {
     var gender: String
     var species: String
     var status: String
-
+    var episodesId: [String]
     init(character: Character) {
         characterId = String(character.id)
         name = character.name
@@ -22,5 +22,11 @@ class CharacterCellModel: NSObject, CharacterCellConfigurator {
         gender = character.gender.rawValue
         species = character.species.rawValue
         status = character.status.rawValue
+        episodesId = character.episode.map { episodeUrl -> String in
+            if let idFromUrl = episodeUrl.split(separator: "/").last {
+                return String(idFromUrl)
+            }
+            return ""
+        }
     }
 }

@@ -17,6 +17,19 @@ protocol CellConfigurator: NSObject {
 
 protocol CharacterCellConfigurator: CellConfigurator {
     var characterId: String { get }
+    var episodesId: [String] { get }
+}
+
+protocol EpisodeCellConfigurator: CellConfigurator {
+    var episodeId: String { get }
+}
+
+protocol LocationCellConfigurator: CellConfigurator {
+    var locationId: String { get }
+}
+
+protocol ConfigurableCollectionRow: UICollectionViewCell {
+    func configureWith(_ configurator: CellConfigurator) -> UICollectionViewCell
 }
 
 extension CellConfigurator {

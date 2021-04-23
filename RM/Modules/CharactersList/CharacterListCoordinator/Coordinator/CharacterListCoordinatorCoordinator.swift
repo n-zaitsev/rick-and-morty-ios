@@ -10,6 +10,7 @@ import UIKit
 
 class CharacterListCoordinator: BaseCoordinator {
     var characterListModuleFactory: ModuleFactory<CharacterListViewController>!
+    var characterDetailsModuleFactory: ModuleFactory<CharacterDetailsViewController>!
     override func start() {
         // Decoration part
         characterListModuleFactory.produceRoot { vc in
@@ -19,9 +20,9 @@ class CharacterListCoordinator: BaseCoordinator {
         }
     }
 
-    private func openDetailsPage(from _: UIViewController, model _: CellConfigurator) {
-//        contactDetailsModuleFactory.defaultProduce(from: from, disableBackText: false) { _, cvc in
-//            cvc.viewModel.getCharacterDetails(id: model.characterId, episodes: model.episodes)
-//        }
+    private func openDetailsPage(from: UIViewController, model: CellConfigurator) {
+        characterDetailsModuleFactory.defaultProduce(from: from, disableBackText: false) { (_, cdvc) in
+            cdvc.
+        }
     }
 }
