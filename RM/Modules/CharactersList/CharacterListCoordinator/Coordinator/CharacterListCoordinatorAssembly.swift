@@ -14,6 +14,7 @@ class CharacterListCoordinatorAssembly: Assembly {
         container.register(CharacterListCoordinator.self) { r in
             let c = CharacterListCoordinator()
             c.characterListModuleFactory = r.resolveController(CharacterListViewController.self)
+            c.characterDetailsModuleFactory = r.resolveController(CharacterDetailsViewController.self)
             return c
         }
     }

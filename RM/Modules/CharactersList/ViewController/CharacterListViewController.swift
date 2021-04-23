@@ -11,14 +11,14 @@ import UIKit
 class CharacterListViewController: UIViewController {
     var viewModel: CharacterListViewModel!
     @IBOutlet var rootView: CharacterListView!
-    var goToDetails: ((CellConfigurator) -> Void)?
+    var goToDetails: ((CharacterCellConfigurator) -> Void)?
     var getCharactersFromPage: ((String?) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Decoration
-        rootView.decorate(goToDetailsClosure: nil) { page in
+        rootView.decorate(goToDetailsClosure: goToDetails) { page in
             self.viewModel.getCharactersWithPage(page)
         }
         bindToViewModel()

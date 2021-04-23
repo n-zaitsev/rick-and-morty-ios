@@ -12,10 +12,10 @@ import UIKit
 class CharacterTableViewDataSource: NSObject {
     private var models = CharacterSectionModel(characters: [], nextPage: "1")
     private weak var tableView: UITableView?
-    var goToDetails: ((CellConfigurator) -> Void)?
+    var goToDetails: ((CharacterCellConfigurator) -> Void)?
     var getCharactersFromPage: ((String?) -> Void)?
     init(tableView: UITableView,
-         goToDetailsClosure: ((CellConfigurator) -> Void)? = nil,
+         goToDetailsClosure: ((CharacterCellConfigurator) -> Void)? = nil,
          getCharactersFromPage: ((String?) -> Void)? = nil)
     {
         self.tableView = tableView
