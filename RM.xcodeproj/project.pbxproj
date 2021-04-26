@@ -48,13 +48,14 @@
 		56DBE3A52632CA0600449E4E /* HeadCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DBE3A32632CA0600449E4E /* HeadCollectionViewCell.xib */; };
 		56DBE3AA2632CBDC00449E4E /* EpisodesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBE3A82632CBDC00449E4E /* EpisodesCollectionViewCell.swift */; };
 		56DBE3AB2632CBDC00449E4E /* EpisodesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DBE3A92632CBDC00449E4E /* EpisodesCollectionViewCell.xib */; };
-		56DBE3B02632CBFC00449E4E /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBE3AE2632CBFC00449E4E /* ProfileCollectionViewCell.swift */; };
-		56DBE3B12632CBFC00449E4E /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DBE3AF2632CBFC00449E4E /* ProfileCollectionViewCell.xib */; };
+		56DBE3B02632CBFC00449E4E /* LocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBE3AE2632CBFC00449E4E /* LocationCollectionViewCell.swift */; };
+		56DBE3B12632CBFC00449E4E /* LocationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DBE3AF2632CBFC00449E4E /* LocationCollectionViewCell.xib */; };
 		5805B636801F95CFD5A4F173 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318CBC8A98DF4170C06296F4 /* CharacterListViewModel.swift */; };
 		5CF0CF6F149BFBDF5D65033B /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A681664164AAA94BEEDA000E /* CharacterListView.swift */; };
 		5CF32522E89C79AF00829D22 /* CharacterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7F7763D002C2B47F31257D /* CharacterDetailsView.swift */; };
 		81EF6F718A350E28C3C01D19 /* CharacterDetailsModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435496ABB51DAE467716BF5 /* CharacterDetailsModuleAssembly.swift */; };
 		9AA75732CDDC377CD19E86EF /* CharacterListCoordinatorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62544155871770F9506F95CB /* CharacterListCoordinatorCoordinator.swift */; };
+		CE3EDCA82637034500D3B289 /* CharacterDetailsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EDCA72637034400D3B289 /* CharacterDetailsCollectionViewDataSource.swift */; };
 		D6A527D133EEAFC669CBACD6 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B74AD935D33FDC3B7DEC87 /* ApplicationCoordinator.swift */; };
 		DDE466BB2C0CAF8B5749248B /* CharacterListCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541FAF263EB0A999954A04D8 /* CharacterListCoordinatorAssembly.swift */; };
 		E9BBD057C3A7AF2D5D0563A8 /* ApplicationCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9C67568C6B899D1A02036B /* ApplicationCoordinatorAssembly.swift */; };
@@ -102,13 +103,14 @@
 		56DBE3A32632CA0600449E4E /* HeadCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadCollectionViewCell.xib; sourceTree = "<group>"; };
 		56DBE3A82632CBDC00449E4E /* EpisodesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesCollectionViewCell.swift; sourceTree = "<group>"; };
 		56DBE3A92632CBDC00449E4E /* EpisodesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodesCollectionViewCell.xib; sourceTree = "<group>"; };
-		56DBE3AE2632CBFC00449E4E /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
-		56DBE3AF2632CBFC00449E4E /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
+		56DBE3AE2632CBFC00449E4E /* LocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewCell.swift; sourceTree = "<group>"; };
+		56DBE3AF2632CBFC00449E4E /* LocationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCollectionViewCell.xib; sourceTree = "<group>"; };
 		62544155871770F9506F95CB /* CharacterListCoordinatorCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterListCoordinatorCoordinator.swift; sourceTree = "<group>"; };
 		69F17EC1757D217B9EDE6525 /* CharacterListModuleAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterListModuleAssembly.swift; sourceTree = "<group>"; };
 		8435496ABB51DAE467716BF5 /* CharacterDetailsModuleAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterDetailsModuleAssembly.swift; sourceTree = "<group>"; };
 		8D9C67568C6B899D1A02036B /* ApplicationCoordinatorAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		A681664164AAA94BEEDA000E /* CharacterListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
+		CE3EDCA72637034400D3B289 /* CharacterDetailsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		E8B74AD935D33FDC3B7DEC87 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		EB928BE9EAF1E5EE2FD86C46 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -290,7 +292,7 @@
 		56DBE37A2632B85B00449E4E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				56DBE3AD2632CBE600449E4E /* ProfileCell */,
+				56DBE3AD2632CBE600449E4E /* LocationCell */,
 				56DBE3A72632CBC400449E4E /* EpisodesCell */,
 				56DBE3A12632C9D600449E4E /* HeadCell */,
 			);
@@ -343,13 +345,13 @@
 			path = EpisodesCell;
 			sourceTree = "<group>";
 		};
-		56DBE3AD2632CBE600449E4E /* ProfileCell */ = {
+		56DBE3AD2632CBE600449E4E /* LocationCell */ = {
 			isa = PBXGroup;
 			children = (
-				56DBE3AE2632CBFC00449E4E /* ProfileCollectionViewCell.swift */,
-				56DBE3AF2632CBFC00449E4E /* ProfileCollectionViewCell.xib */,
+				56DBE3AE2632CBFC00449E4E /* LocationCollectionViewCell.swift */,
+				56DBE3AF2632CBFC00449E4E /* LocationCollectionViewCell.xib */,
 			);
-			path = ProfileCell;
+			path = LocationCell;
 			sourceTree = "<group>";
 		};
 		5980BECE931477B04DF1402A /* CharacterDetails */ = {
@@ -411,6 +413,7 @@
 				56DBE37A2632B85B00449E4E /* Cells */,
 				0A7F7763D002C2B47F31257D /* CharacterDetailsView.swift */,
 				56DBE38A2632C0A100449E4E /* CharacterDetailsSections.swift */,
+				CE3EDCA72637034400D3B289 /* CharacterDetailsCollectionViewDataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -506,7 +509,7 @@
 				33061DF5D4C6B9FFD24A0F20 /* CharacterListViewController.storyboard in Resources */,
 				5635659F262D65A90048B546 /* CharacterTableViewCell.xib in Resources */,
 				56DBE3AB2632CBDC00449E4E /* EpisodesCollectionViewCell.xib in Resources */,
-				56DBE3B12632CBFC00449E4E /* ProfileCollectionViewCell.xib in Resources */,
+				56DBE3B12632CBFC00449E4E /* LocationCollectionViewCell.xib in Resources */,
 				27DC46E442D24513F858094C /* CharacterDetailsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +556,7 @@
 				5635659A262D65620048B546 /* ConfigurableRow.swift in Sources */,
 				56356586262D61730048B546 /* APIConfiguration.swift in Sources */,
 				D6A527D133EEAFC669CBACD6 /* ApplicationCoordinator.swift in Sources */,
+				CE3EDCA82637034500D3B289 /* CharacterDetailsCollectionViewDataSource.swift in Sources */,
 				E9BBD057C3A7AF2D5D0563A8 /* ApplicationCoordinatorAssembly.swift in Sources */,
 				5635654F262D54F90048B546 /* UIViewController+StoryboardInitable.swift in Sources */,
 				5635658B262D61CA0048B546 /* Constants.swift in Sources */,
@@ -573,7 +577,7 @@
 				2DA7415C7CC74ACB4A8B7BAA /* CharacterListModuleAssembly.swift in Sources */,
 				56DBE3932632C27B00449E4E /* CharacterDeatilsAPIClient.swift in Sources */,
 				563565AC262D81370048B546 /* CharacterSectionModel.swift in Sources */,
-				56DBE3B02632CBFC00449E4E /* ProfileCollectionViewCell.swift in Sources */,
+				56DBE3B02632CBFC00449E4E /* LocationCollectionViewCell.swift in Sources */,
 				472F208D890CB8E768EC55B3 /* CharacterDetailsViewController.swift in Sources */,
 				43205CB98EA71C2B061E6713 /* CharacterDetailsViewModel.swift in Sources */,
 				5CF32522E89C79AF00829D22 /* CharacterDetailsView.swift in Sources */,
@@ -718,6 +722,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6N2HZXD9X;
 				INFOPLIST_FILE = RM/Service/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -736,6 +741,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6N2HZXD9X;
 				INFOPLIST_FILE = RM/Service/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

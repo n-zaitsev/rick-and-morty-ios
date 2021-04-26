@@ -10,7 +10,7 @@
         <!--Character Details View Controller-->
         <scene sceneID="v1B-uS-ydm">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="R9G-X6-Rj8" customClass="CharacterDetailsViewController" customModule="RM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharacterDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R9G-X6-Rj8" customClass="CharacterDetailsViewController" customModule="RM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xOg-Uv-dyc"/>
                         <viewControllerLayoutGuide type="bottom" id="l4d-P4-ZKb"/>

@@ -9,15 +9,21 @@
 import UIKit
 
 class CharacterDetailsView: UIView {
-    private var models = [[CellConfigurator]]()
+    private var models = [[CellConfigurator]]() {
+        didSet {
+            dataSource.updateModels(models)
+        }
+    }
 
     @IBOutlet private var collectionView: UICollectionView!
+    private var dataSource: CharacterDetailsCollectionViewDataSource!
 
     func decorate() {
         // Decoration part
         configureNibs()
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        dataSource = CharacterDetailsCollectionViewDataSource(collectionView: collectionView)
+        collectionView.dataSource = dataSource
+        collectionView.delegate = dataSource
         collectionView.collectionViewLayout = collectionViewLayout
     }
 
@@ -29,8 +35,8 @@ class CharacterDetailsView: UIView {
                 return HeadCollectionViewCell.defaultSectionLayout(env: env)
             case .episodes:
                 return EpisodesCollectionViewCell.defaultSectionLayout(env: env)
-            case .profile:
-                return ProfileCollectionViewCell.defaultSectionLayout(env: env)
+            case .location:
+                return LocationCollectionViewCell.defaultSectionLayout(env: env)
             }
         }
     }
@@ -42,30 +48,11 @@ class CharacterDetailsView: UIView {
         let episodeNib = UINib(nibName: EpisodesCollectionViewCell.className, bundle: nil)
         collectionView.register(episodeNib, forCellWithReuseIdentifier: EpisodesCharacterDetailsModel.className)
 
-        let profileNib = UINib(nibName: ProfileCollectionViewCell.className, bundle: nil)
-        collectionView.register(profileNib, forCellWithReuseIdentifier: LocationCharacterDetailsModel.className)
+        let locationNib = UINib(nibName: LocationCollectionViewCell.className, bundle: nil)
+        collectionView.register(locationNib, forCellWithReuseIdentifier: LocationCharacterDetailsModel.className)
     }
 
     func updateModels(_ models: [[CellConfigurator]]) {
         self.models = models
-        collectionView.reloadData()
-    }
-}
-
-extension CharacterDetailsView: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models[section].count
-    }
-
-    func numberOfSections(in _: UICollectionView) -> Int {
-        models.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let model = models[indexPath.section][indexPath.row]
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.reuseIndentifier, for: indexPath) as? ConfigurableCollectionRow {
-            return cell.configureWith(model)
-        }
-        return UICollectionViewCell()
     }
 }

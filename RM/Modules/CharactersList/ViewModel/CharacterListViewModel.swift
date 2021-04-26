@@ -32,7 +32,7 @@ class CharacterListViewModel: NSObject {
                 if let page = characterResponse.info.next.split(separator: "/").last?.split(separator: "=").last {
                     self.models.nextPage = String(page)
                 }
-                self.models.characters.append(contentsOf: characters.map { character -> CellConfigurator in
+                self.models.characters.append(contentsOf: characters.map { character -> CharacterCellConfigurator in
                     CharacterCellModel(character: character)
                 })
             }

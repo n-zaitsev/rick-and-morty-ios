@@ -25,13 +25,13 @@ enum CharacterEndpoint: APIConfiguration {
         }
     }
 
-    var parameters: Params {
+    var parameters: Params? {
         switch self {
         case let .getCharactersWithPage(page):
             if let page = page {
                 return .url([RequestParams.characters.page: page])
             }
-            return .body([:])
+            return nil
         }
     }
 
@@ -52,6 +52,8 @@ enum CharacterEndpoint: APIConfiguration {
             var components = URLComponents(string: url.appendingPathComponent(path).absoluteString)
             components?.queryItems = queryParams
             urlRequest.url = components?.url
+        case .none:
+            break
         }
 
         return urlRequest

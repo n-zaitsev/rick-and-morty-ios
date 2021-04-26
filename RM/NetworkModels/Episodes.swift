@@ -5,11 +5,7 @@
 
 import Foundation
 
-// MARK: - Welcome
-
-struct EpisodesResponse: Codable {
-    let results: [Episode]
-}
+typealias EpisodesResponse = [Episode]
 
 // MARK: - Result
 

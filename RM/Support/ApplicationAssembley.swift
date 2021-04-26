@@ -10,5 +10,6 @@ import Swinject
 enum ApplicationAssembley {
     static let shared = Assembler([ApplicationCoordinatorAssembly(),
                                    CharacterListModuleAssembly(),
-                                   CharacterListCoordinatorAssembly()])
+                                   CharacterListCoordinatorAssembly(),
+                                   CharacterDetailsModuleAssembly()])
 }

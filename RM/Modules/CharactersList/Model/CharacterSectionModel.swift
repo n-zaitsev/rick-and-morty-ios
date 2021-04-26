@@ -8,6 +8,6 @@
 import Foundation
 
 struct CharacterSectionModel {
-    var characters: [CellConfigurator]
+    var characters: [CharacterCellConfigurator]
     var nextPage: String?
 }
