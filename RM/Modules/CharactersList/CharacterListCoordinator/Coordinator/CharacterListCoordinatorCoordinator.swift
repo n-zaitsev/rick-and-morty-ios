@@ -20,9 +20,9 @@ class CharacterListCoordinator: BaseCoordinator {
         }
     }
 
-    private func openDetailsPage(from: UIViewController, model: CellConfigurator) {
-        characterDetailsModuleFactory.defaultProduce(from: from, disableBackText: false) { (_, cdvc) in
-            cdvc.
+    private func openDetailsPage(from: UIViewController, model: CharacterCellConfigurator) {
+        characterDetailsModuleFactory.defaultProduce(from: from, disableBackText: false) { _, cdvc in
+            cdvc.viewModel.getCharacterDetails(model: model)
         }
     }
 }

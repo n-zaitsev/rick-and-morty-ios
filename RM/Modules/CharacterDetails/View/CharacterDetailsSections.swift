@@ -10,13 +10,13 @@ import UIKit
 enum ContactsDetailsSections: Int, CaseIterable {
     case head
     case episodes
-    case profile
+    case location
 
     var columnCount: Int {
         switch self {
         case .head:
             return 0
-        case .profile:
+        case .location:
             return 1
         case .episodes:
             return 2

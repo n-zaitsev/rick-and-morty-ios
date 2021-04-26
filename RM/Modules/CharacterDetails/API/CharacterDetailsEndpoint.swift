@@ -24,14 +24,14 @@ enum CharacterDetailsEndpoint: APIConfiguration {
         case let .getCharacterWithId(id):
             return RequestURLs.characters + id
         case let .getEpisodesWitdIds(ids):
-            return RequestURLs.characters + "\(ids)"
+            return RequestURLs.episodes + "\(ids)"
         }
     }
 
-    var parameters: Params {
+    var parameters: Params? {
         switch self {
         case .getCharacterWithId, .getEpisodesWitdIds:
-            return .body([:])
+            return nil
         }
     }
 
@@ -52,6 +52,8 @@ enum CharacterDetailsEndpoint: APIConfiguration {
             var components = URLComponents(string: url.appendingPathComponent(path).absoluteString)
             components?.queryItems = queryParams
             urlRequest.url = components?.url
+        case .none:
+            break
         }
 
         return urlRequest

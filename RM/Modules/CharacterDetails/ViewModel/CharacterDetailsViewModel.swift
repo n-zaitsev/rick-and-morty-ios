@@ -34,23 +34,23 @@ class CharacterDetailsViewModel: NSObject {
             case let .success(character):
                 let headCell = HeadCharacterDetailsModel(character: character)
                 head.append(headCell)
-                let origin = LocationCharacterDetailsModel(location: character.origin)
-                let lastSeenLocation = LocationCharacterDetailsModel(location: character.location)
+                let origin = LocationCharacterDetailsModel(location: character.origin, headerName: "First seen")
+                let lastSeenLocation = LocationCharacterDetailsModel(location: character.location, headerName: "Last seen")
                 location = [origin, lastSeenLocation]
             }
             group.leave()
         }
-
+        group.enter()
         CharacterDetailsAPIClient.getEpisodesWithIds(model.episodesId) { result in
             switch result {
             case let .failure(error):
                 print(error.localizedDescription)
-            case let .success(response):
-                let episodesDetails = response.results
+            case let .success(episodesDetails):
                 episodes = episodesDetails.map { episode -> CellConfigurator in
                     EpisodesCharacterDetailsModel(episode: episode)
                 }
             }
+            group.leave()
         }
         group.notify(queue: DispatchQueue.main) {
             self.models = [head, location, episodes]
