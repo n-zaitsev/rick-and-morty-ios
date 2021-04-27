@@ -26,6 +26,7 @@ protocol EpisodeCellConfigurator: CellConfigurator {
 
 protocol LocationCellConfigurator: CellConfigurator {
     var locationId: String { get }
+    var name: String { get }
 }
 
 protocol ConfigurableCollectionRow: UICollectionViewCell {

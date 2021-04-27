@@ -28,6 +28,10 @@ class CharacterListViewController: UIViewController {
         viewModel.didUpdate = { [weak self] in
             self?.viewModelDidUpdate()
         }
+
+        viewModel.didError = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 
     private func viewModelDidUpdate() {

@@ -11,12 +11,8 @@ import Foundation
 class CharacterListViewModel: NSObject {
     var models = CharacterSectionModel(characters: [], nextPage: "1")
 
-    override init() {
-        super.init()
-//        getCharactersWithPage(models.nextPage ?? "1")
-    }
-
     var didUpdate: (() -> Void)?
+    var didError: (() -> Void)?
 
     func getCharactersWithPage(_ page: String?) {
         CharacterAPIClient.getCharactersWithPage(page) { result in
@@ -42,6 +38,7 @@ class CharacterListViewModel: NSObject {
             switch result {
             case let .failure(error):
                 print(error.localizedDescription)
+                self.didError?()
             case let .success(episode):
                 charactersIds = episode.characters.map { characterUrl -> String in
                     characterUrl.getCharacterIdFromUrl()
@@ -50,6 +47,7 @@ class CharacterListViewModel: NSObject {
                     switch result {
                     case let .failure(error):
                         print(error.localizedDescription)
+                        self.didError?()
                     case let .success(characterResponse):
                         self.models.nextPage = nil
                         self.models.characters = characterResponse.map { character -> CharacterCellConfigurator in
@@ -68,6 +66,7 @@ class CharacterListViewModel: NSObject {
             switch result {
             case let .failure(error):
                 print(error.localizedDescription)
+                self.didError?()
             case let .success(location):
                 charactersIds = location.residents.map { characterUrl -> String in
                     characterUrl.getCharacterIdFromUrl()
@@ -76,6 +75,7 @@ class CharacterListViewModel: NSObject {
                     switch result {
                     case let .failure(error):
                         print(error.localizedDescription)
+                        self.didError?()
                     case let .success(characterResponse):
                         self.models.nextPage = nil
                         self.models.characters = characterResponse.map { character -> CharacterCellConfigurator in
