@@ -23,10 +23,7 @@ class CharacterCellModel: NSObject, CharacterCellConfigurator {
         species = character.species.rawValue
         status = character.status.rawValue
         episodesId = character.episode.map { episodeUrl -> String in
-            if let idFromUrl = episodeUrl.split(separator: "/").last {
-                return String(idFromUrl)
-            }
-            return ""
+            episodeUrl.getCharacterIdFromUrl()
         }
     }
 }

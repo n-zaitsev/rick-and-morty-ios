@@ -37,6 +37,8 @@
 		563565A2262D6A490048B546 /* CharacteCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563565A1262D6A490048B546 /* CharacteCellModel.swift */; };
 		563565A5262D78F80048B546 /* CharacterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563565A4262D78F80048B546 /* CharacterTableViewDataSource.swift */; };
 		563565AC262D81370048B546 /* CharacterSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563565AB262D81370048B546 /* CharacterSectionModel.swift */; };
+		563D6FE2263809DD004DC32C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D6FE1263809DD004DC32C /* Location.swift */; };
+		563D6FE626380B6F004DC32C /* String+getCharacterIdFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D6FE526380B6F004DC32C /* String+getCharacterIdFromUrl.swift */; };
 		56DBE3822632BED400449E4E /* HeadCharacterDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBE3812632BED400449E4E /* HeadCharacterDetailsModel.swift */; };
 		56DBE3852632BEF100449E4E /* LocationCharacterDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBE3842632BEF100449E4E /* LocationCharacterDetailsModel.swift */; };
 		56DBE3882632BF0100449E4E /* EpisodesCharacterDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBE3872632BF0100449E4E /* EpisodesCharacterDetailsModel.swift */; };
@@ -92,6 +94,8 @@
 		563565A1262D6A490048B546 /* CharacteCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteCellModel.swift; sourceTree = "<group>"; };
 		563565A4262D78F80048B546 /* CharacterTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewDataSource.swift; sourceTree = "<group>"; };
 		563565AB262D81370048B546 /* CharacterSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSectionModel.swift; sourceTree = "<group>"; };
+		563D6FE1263809DD004DC32C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		563D6FE526380B6F004DC32C /* String+getCharacterIdFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+getCharacterIdFromUrl.swift"; sourceTree = "<group>"; };
 		56DBE3812632BED400449E4E /* HeadCharacterDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadCharacterDetailsModel.swift; sourceTree = "<group>"; };
 		56DBE3842632BEF100449E4E /* LocationCharacterDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCharacterDetailsModel.swift; sourceTree = "<group>"; };
 		56DBE3872632BF0100449E4E /* EpisodesCharacterDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesCharacterDetailsModel.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 			children = (
 				5635654C262D54F90048B546 /* NSObject+className.swift */,
 				5635654D262D54F90048B546 /* UIViewController+StoryboardInitable.swift */,
+				563D6FE526380B6F004DC32C /* String+getCharacterIdFromUrl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 			children = (
 				56DBE39A2632C69F00449E4E /* Episodes.swift */,
 				56356572262D5EB30048B546 /* Character.swift */,
+				563D6FE1263809DD004DC32C /* Location.swift */,
 			);
 			path = NetworkModels;
 			sourceTree = "<group>";
@@ -574,8 +580,10 @@
 				563565A2262D6A490048B546 /* CharacteCellModel.swift in Sources */,
 				56DBE3A42632CA0600449E4E /* HeadCollectionViewCell.swift in Sources */,
 				56DBE3852632BEF100449E4E /* LocationCharacterDetailsModel.swift in Sources */,
+				563D6FE626380B6F004DC32C /* String+getCharacterIdFromUrl.swift in Sources */,
 				2DA7415C7CC74ACB4A8B7BAA /* CharacterListModuleAssembly.swift in Sources */,
 				56DBE3932632C27B00449E4E /* CharacterDeatilsAPIClient.swift in Sources */,
+				563D6FE2263809DD004DC32C /* Location.swift in Sources */,
 				563565AC262D81370048B546 /* CharacterSectionModel.swift in Sources */,
 				56DBE3B02632CBFC00449E4E /* LocationCollectionViewCell.swift in Sources */,
 				472F208D890CB8E768EC55B3 /* CharacterDetailsViewController.swift in Sources */,

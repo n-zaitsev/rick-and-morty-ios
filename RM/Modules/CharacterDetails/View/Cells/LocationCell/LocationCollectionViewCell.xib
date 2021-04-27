@@ -17,14 +17,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="340" height="209"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCK-z0-8xw">
-                        <rect key="frame" x="0.0" y="73" width="340" height="136"/>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxo-cp-5wp">
+                        <rect key="frame" x="16" y="0.0" width="308" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVs-ga-BMP">
-                        <rect key="frame" x="0.0" y="0.0" width="340" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gns-Gh-tkO">
+                        <rect key="frame" x="146" y="114.5" width="48" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,17 +34,21 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="systemTealColor"/>
             <constraints>
-                <constraint firstItem="TVs-ga-BMP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1eu-SG-Ied"/>
-                <constraint firstItem="YCK-z0-8xw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2ZN-h2-9bi"/>
-                <constraint firstAttribute="trailing" secondItem="YCK-z0-8xw" secondAttribute="trailing" id="Bq4-CM-gDL"/>
-                <constraint firstItem="YCK-z0-8xw" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="SkH-0I-NZY"/>
-                <constraint firstAttribute="trailing" secondItem="TVs-ga-BMP" secondAttribute="trailing" id="eHI-cP-j2a"/>
-                <constraint firstItem="TVs-ga-BMP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nxf-ol-Wga"/>
+                <constraint firstItem="jxo-cp-5wp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="16j-8O-FfJ"/>
+                <constraint firstItem="jxo-cp-5wp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="9mV-HE-Iho"/>
+                <constraint firstAttribute="trailing" secondItem="jxo-cp-5wp" secondAttribute="trailing" constant="16" id="AcR-hY-m1u"/>
+                <constraint firstItem="gns-Gh-tkO" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="IKj-ZG-BXU"/>
+                <constraint firstItem="gns-Gh-tkO" firstAttribute="centerX" secondItem="jxo-cp-5wp" secondAttribute="centerX" id="tah-Qc-PIe"/>
             </constraints>
             <size key="customSize" width="340" height="209"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="30"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="headerNameLabel" destination="TVs-ga-BMP" id="a7B-XB-UGP"/>
-                <outlet property="nameLabel" destination="YCK-z0-8xw" id="4Um-V5-Yj9"/>
+                <outlet property="headerNameLabel" destination="jxo-cp-5wp" id="eJa-8b-zcr"/>
+                <outlet property="nameLabel" destination="gns-Gh-tkO" id="eo8-mg-Bh5"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="-8.3705357142857135"/>
         </collectionViewCell>

@@ -7,10 +7,10 @@
 
 import UIKit
 
-enum ContactsDetailsSections: Int, CaseIterable {
+enum CharacterDetailsSections: Int, CaseIterable {
     case head
-    case episodes
     case location
+    case episodes
 
     var columnCount: Int {
         switch self {

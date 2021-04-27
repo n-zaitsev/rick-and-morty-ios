@@ -18,15 +18,10 @@ class CharacterListViewController: UIViewController {
         super.viewDidLoad()
 
         // Decoration
-        rootView.decorate(goToDetailsClosure: goToDetails) { page in
-            self.viewModel.getCharactersWithPage(page)
-        }
+        rootView.decorate()
+        rootView.updateGoToDetailsClosure(closure: goToDetails)
+        rootView.updateGetCharacterFromPageClosure(closure: getCharactersFromPage)
         bindToViewModel()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
     }
 
     private func bindToViewModel() {

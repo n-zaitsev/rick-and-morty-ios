@@ -10,17 +10,21 @@ import Foundation
 
 enum CharacterEndpoint: APIConfiguration {
     case getCharactersWithPage(_ page: String?)
+    case getCharactersWithIds(_ ids: [String])
+    case getCharactersIdsWithEpisode(_ episode: String)
 
     var method: HTTPMethod {
         switch self {
-        case .getCharactersWithPage:
+        default:
             return .get
         }
     }
 
     var path: String {
         switch self {
-        case .getCharactersWithPage:
+        case let .getCharactersWithIds(ids):
+            return RequestURLs.characters + "\(ids)"
+        default:
             return RequestURLs.characters
         }
     }
@@ -31,6 +35,8 @@ enum CharacterEndpoint: APIConfiguration {
             if let page = page {
                 return .url([RequestParams.characters.page: page])
             }
+            return nil
+        default:
             return nil
         }
     }

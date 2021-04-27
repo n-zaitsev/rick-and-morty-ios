@@ -12,9 +12,9 @@ class LocationCharacterDetailsModel: NSObject, LocationCellConfigurator {
     let headerName: String
     let locationId: String
 
-    init(location: Location, headerName: String) {
+    init(location: CharacterLocation, headerName: String) {
         self.headerName = headerName
         name = location.name
-        locationId = (location.url.split(separator: "/").last != nil) ? String(location.url.split(separator: "/").last!) : " "
+        locationId = location.url.getCharacterIdFromUrl()
     }
 }

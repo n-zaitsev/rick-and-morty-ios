@@ -11,13 +11,24 @@ import UIKit
 class CharacterListView: UIView {
     @IBOutlet private var tableView: UITableView!
     private var dataSource: CharacterTableViewDataSource!
-    var goToDetails: ((CharacterCellConfigurator) -> Void)?
-    var getCharactersFromPage: ((String?) -> Void)?
+    var goToDetails: ((CharacterCellConfigurator) -> Void)? {
+        didSet {
+            dataSource.updateGoToDetailsClosure(goToDetails: goToDetails)
+        }
+    }
 
-    func decorate(goToDetailsClosure: ((CharacterCellConfigurator) -> Void)? = nil, getCharactersFromPage: ((String?) -> Void)? = nil) {
+    var getCharactersFromEpisode: ((String) -> Void)? {
+        didSet {}
+    }
+
+    var getCharactersFromPage: ((String?) -> Void)? {
+        didSet {
+            dataSource.updateGetCharacterFromPageClosure(getCharactersFromPage: getCharactersFromPage)
+        }
+    }
+
+    func decorate() {
         // Decoration part
-        goToDetails = goToDetailsClosure
-        self.getCharactersFromPage = getCharactersFromPage
         configureDataSource()
         configureCells()
     }
@@ -27,10 +38,20 @@ class CharacterListView: UIView {
         tableView.reloadData()
     }
 
+    func updateGoToDetailsClosure(closure: ((CharacterCellConfigurator) -> Void)? = nil) {
+        goToDetails = closure
+    }
+
+    func updateGetCharacterFromPageClosure(closure: ((String?) -> Void)? = nil) {
+        getCharactersFromPage = closure
+    }
+
+    func updateGetCharactersFromEpisodeClosure(closure: ((String) -> Void)? = nil) {
+        getCharactersFromEpisode = closure
+    }
+
     private func configureDataSource() {
-        dataSource = CharacterTableViewDataSource(tableView: tableView,
-                                                  goToDetailsClosure: goToDetails,
-                                                  getCharactersFromPage: getCharactersFromPage)
+        dataSource = CharacterTableViewDataSource(tableView: tableView)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
     }

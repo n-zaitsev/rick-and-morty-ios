@@ -20,4 +20,12 @@ class CharacterAPIClient {
     static func getCharactersWithPage(_ page: String?, completion: @escaping (Result<CharactersResponse, AFError>) -> Void) {
         performRequest(route: CharacterEndpoint.getCharactersWithPage(page), completion: completion)
     }
+
+    static func getCharactersIdsWithEpisode(_ episode: String, completion: @escaping (Result<[String], AFError>) -> Void) {
+        performRequest(route: CharacterEndpoint.getCharactersIdsWithEpisode(episode), completion: completion)
+    }
+
+    static func getCharactersWithIds(_ ids: [String], completion: @escaping (Result<[Character], AFError>) -> Void) {
+        performRequest(route: CharacterEndpoint.getCharactersWithIds(ids), completion: completion)
+    }
 }

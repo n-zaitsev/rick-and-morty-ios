@@ -17,19 +17,28 @@ class CharacterDetailsView: UIView {
 
     @IBOutlet private var collectionView: UICollectionView!
     private var dataSource: CharacterDetailsCollectionViewDataSource!
+    private var goToCharactersListFromEpisode: ((String) -> Void)? {
+        didSet {
+            dataSource.updateGoToCharacterListFromEpisodeClosure(closure: goToCharactersListFromEpisode)
+        }
+    }
+
+    private var goToCharactersListFromLocation: ((String) -> Void)? {
+        didSet {
+            dataSource.updateGoToCharactersListFromLocationClosure(closure: goToCharactersListFromLocation)
+        }
+    }
 
     func decorate() {
         // Decoration part
         configureNibs()
-        dataSource = CharacterDetailsCollectionViewDataSource(collectionView: collectionView)
-        collectionView.dataSource = dataSource
-        collectionView.delegate = dataSource
+        configureDataSource()
         collectionView.collectionViewLayout = collectionViewLayout
     }
 
     var collectionViewLayout: UICollectionViewLayout {
         UICollectionViewCompositionalLayout { (sectionIndex, env) -> NSCollectionLayoutSection? in
-            guard let section = ContactsDetailsSections(rawValue: sectionIndex) else { return nil }
+            guard let section = CharacterDetailsSections(rawValue: sectionIndex) else { return nil }
             switch section {
             case .head:
                 return HeadCollectionViewCell.defaultSectionLayout(env: env)
@@ -50,6 +59,20 @@ class CharacterDetailsView: UIView {
 
         let locationNib = UINib(nibName: LocationCollectionViewCell.className, bundle: nil)
         collectionView.register(locationNib, forCellWithReuseIdentifier: LocationCharacterDetailsModel.className)
+    }
+
+    private func configureDataSource() {
+        dataSource = CharacterDetailsCollectionViewDataSource(collectionView: collectionView)
+        collectionView.dataSource = dataSource
+        collectionView.delegate = dataSource
+    }
+
+    func updateGoToCharactersListFromEpisodeClosure(closure: ((String) -> Void)? = nil) {
+        goToCharactersListFromEpisode = closure
+    }
+
+    func updateGoToCharactersListFromLocationClosure(closure: ((String) -> Void)? = nil) {
+        goToCharactersListFromLocation = closure
     }
 
     func updateModels(_ models: [[CellConfigurator]]) {

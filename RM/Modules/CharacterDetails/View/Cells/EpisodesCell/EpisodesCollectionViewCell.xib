@@ -23,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFj-V9-QMA">
-                        <rect key="frame" x="126" y="147.5" width="39.5" height="19.5"/>
+                        <rect key="frame" x="126" y="141.5" width="39.5" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,10 +35,15 @@
                 <constraint firstItem="vFj-V9-QMA" firstAttribute="centerX" secondItem="Ef9-Tq-KzA" secondAttribute="centerX" id="42a-sa-2Xj"/>
                 <constraint firstAttribute="trailing" secondItem="Ef9-Tq-KzA" secondAttribute="trailing" constant="16" id="HHT-e0-Wrg"/>
                 <constraint firstItem="Ef9-Tq-KzA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="IvJ-FR-289"/>
-                <constraint firstItem="vFj-V9-QMA" firstAttribute="top" secondItem="Ef9-Tq-KzA" secondAttribute="bottom" constant="16" id="Qab-Mq-mtK"/>
+                <constraint firstItem="vFj-V9-QMA" firstAttribute="top" secondItem="Ef9-Tq-KzA" secondAttribute="bottom" constant="10" id="Qab-Mq-mtK"/>
                 <constraint firstItem="Ef9-Tq-KzA" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="t6N-Wb-ndg"/>
             </constraints>
             <size key="customSize" width="291" height="197"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="30"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="airDateLabel" destination="vFj-V9-QMA" id="fNp-O5-iJr"/>
                 <outlet property="nameLabel" destination="Ef9-Tq-KzA" id="iRO-1l-Asc"/>

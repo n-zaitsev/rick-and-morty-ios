@@ -15,8 +15,19 @@ class CharacterDetailsCollectionViewDataSource: NSObject {
         }
     }
 
+    private var goToCharactersListFromEpisode: ((String) -> Void)?
+    private var goToCharactersListFromLocation: ((String) -> Void)?
+
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
+    }
+
+    func updateGoToCharacterListFromEpisodeClosure(closure: ((String) -> Void)?) {
+        goToCharactersListFromEpisode = closure
+    }
+
+    func updateGoToCharactersListFromLocationClosure(closure: ((String) -> Void)? = nil) {
+        goToCharactersListFromLocation = closure
     }
 
     func updateModels(_ models: [[CellConfigurator]]) {
@@ -24,7 +35,25 @@ class CharacterDetailsCollectionViewDataSource: NSObject {
     }
 }
 
-extension CharacterDetailsCollectionViewDataSource: UICollectionViewDelegate {}
+extension CharacterDetailsCollectionViewDataSource: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let section = CharacterDetailsSections(rawValue: indexPath.section) else { return }
+        switch section {
+        case .episodes:
+            collectionView.deselectItem(at: indexPath, animated: true)
+            if let model = models[indexPath.section][indexPath.row] as? EpisodeCellConfigurator {
+                goToCharactersListFromEpisode?(model.episodeId)
+            }
+        case .location:
+            collectionView.deselectItem(at: indexPath, animated: true)
+            if let model = models[indexPath.section][indexPath.row] as? LocationCellConfigurator {
+                goToCharactersListFromLocation?(model.locationId)
+            }
+        default:
+            break
+        }
+    }
+}
 
 extension CharacterDetailsCollectionViewDataSource: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -34,8 +34,10 @@ class CharacterDetailsViewModel: NSObject {
             case let .success(character):
                 let headCell = HeadCharacterDetailsModel(character: character)
                 head.append(headCell)
-                let origin = LocationCharacterDetailsModel(location: character.origin, headerName: "First seen")
-                let lastSeenLocation = LocationCharacterDetailsModel(location: character.location, headerName: "Last seen")
+                let origin = LocationCharacterDetailsModel(location: character.origin,
+                                                           headerName: "Origin location")
+                let lastSeenLocation = LocationCharacterDetailsModel(location: character.location,
+                                                                     headerName: "Last seen location")
                 location = [origin, lastSeenLocation]
             }
             group.leave()

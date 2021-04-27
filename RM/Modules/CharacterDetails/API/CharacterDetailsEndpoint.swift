@@ -11,10 +11,12 @@ import Foundation
 enum CharacterDetailsEndpoint: APIConfiguration {
     case getCharacterWithId(_ id: String)
     case getEpisodesWitdIds(_ ids: [String])
+    case getEpisodeWithId(_ id: String)
+    case getLocationWithId(_ id: String)
 
     var method: HTTPMethod {
         switch self {
-        case .getCharacterWithId, .getEpisodesWitdIds:
+        default:
             return .get
         }
     }
@@ -25,12 +27,16 @@ enum CharacterDetailsEndpoint: APIConfiguration {
             return RequestURLs.characters + id
         case let .getEpisodesWitdIds(ids):
             return RequestURLs.episodes + "\(ids)"
+        case let .getEpisodeWithId(id):
+            return RequestURLs.episodes + id
+        case let .getLocationWithId(id):
+            return RequestURLs.locations + id
         }
     }
 
     var parameters: Params? {
         switch self {
-        case .getCharacterWithId, .getEpisodesWitdIds:
+        default:
             return nil
         }
     }

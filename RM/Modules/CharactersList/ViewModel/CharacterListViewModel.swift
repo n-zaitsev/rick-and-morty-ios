@@ -9,15 +9,11 @@
 import Foundation
 
 class CharacterListViewModel: NSObject {
-    var models = CharacterSectionModel(characters: [], nextPage: "1") {
-        didSet {
-            didUpdate?()
-        }
-    }
+    var models = CharacterSectionModel(characters: [], nextPage: "1")
 
     override init() {
         super.init()
-        getCharactersWithPage(models.nextPage ?? "1")
+//        getCharactersWithPage(models.nextPage ?? "1")
     }
 
     var didUpdate: (() -> Void)?
@@ -35,6 +31,59 @@ class CharacterListViewModel: NSObject {
                 self.models.characters.append(contentsOf: characters.map { character -> CharacterCellConfigurator in
                     CharacterCellModel(character: character)
                 })
+                self.didUpdate?()
+            }
+        }
+    }
+
+    func getCharactersFromEpisode(_ episodeId: String) {
+        var charactersIds = [String]()
+        CharacterDetailsAPIClient.getEpisodeWithId(episodeId) { result in
+            switch result {
+            case let .failure(error):
+                print(error.localizedDescription)
+            case let .success(episode):
+                charactersIds = episode.characters.map { characterUrl -> String in
+                    characterUrl.getCharacterIdFromUrl()
+                }
+                CharacterAPIClient.getCharactersWithIds(charactersIds) { result in
+                    switch result {
+                    case let .failure(error):
+                        print(error.localizedDescription)
+                    case let .success(characterResponse):
+                        self.models.nextPage = nil
+                        self.models.characters = characterResponse.map { character -> CharacterCellConfigurator in
+                            CharacterCellModel(character: character)
+                        }
+                        self.didUpdate?()
+                    }
+                }
+            }
+        }
+    }
+
+    func getCharactersFromLocation(_ id: String) {
+        var charactersIds = [String]()
+        CharacterDetailsAPIClient.getLocationWithId(id) { result in
+            switch result {
+            case let .failure(error):
+                print(error.localizedDescription)
+            case let .success(location):
+                charactersIds = location.residents.map { characterUrl -> String in
+                    characterUrl.getCharacterIdFromUrl()
+                }
+                CharacterAPIClient.getCharactersWithIds(charactersIds) { result in
+                    switch result {
+                    case let .failure(error):
+                        print(error.localizedDescription)
+                    case let .success(characterResponse):
+                        self.models.nextPage = nil
+                        self.models.characters = characterResponse.map { character -> CharacterCellConfigurator in
+                            CharacterCellModel(character: character)
+                        }
+                        self.didUpdate?()
+                    }
+                }
             }
         }
     }

@@ -14,13 +14,17 @@ class CharacterTableViewDataSource: NSObject {
     private weak var tableView: UITableView?
     var goToDetails: ((CharacterCellConfigurator) -> Void)?
     var getCharactersFromPage: ((String?) -> Void)?
-    init(tableView: UITableView,
-         goToDetailsClosure: ((CharacterCellConfigurator) -> Void)? = nil,
-         getCharactersFromPage: ((String?) -> Void)? = nil)
-    {
+
+    init(tableView: UITableView) {
         self.tableView = tableView
+    }
+
+    func updateGoToDetailsClosure(goToDetails: ((CharacterCellConfigurator) -> Void)? = nil) {
+        self.goToDetails = goToDetails
+    }
+
+    func updateGetCharacterFromPageClosure(getCharactersFromPage: ((String?) -> Void)? = nil) {
         self.getCharactersFromPage = getCharactersFromPage
-        goToDetails = goToDetailsClosure
     }
 
     func updateModel(models: CharacterSectionModel) {
