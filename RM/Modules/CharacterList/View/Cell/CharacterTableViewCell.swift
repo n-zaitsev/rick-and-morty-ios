@@ -17,8 +17,7 @@ class CharacterTableViewCell: UITableViewCell {
 
 extension CharacterTableViewCell: ConfigurableRow {
     func configureWith(_ configurator: CellConfigurator) -> UITableViewCell {
-        guard
-            let configurator = configurator as? CharacterCellModel
+        guard let configurator = configurator as? CharacterCellModel
         else { return UITableViewCell() }
         portraitImageView.kf.setImage(with: URL(string: configurator.portrait),
                                       placeholder: UIImage(named: "PlaceholderImage"))

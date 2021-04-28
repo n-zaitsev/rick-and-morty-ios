@@ -17,9 +17,9 @@ class CharacterDetailsView: UIView {
 
     @IBOutlet private var collectionView: UICollectionView!
     private var dataSource: CharacterDetailsCollectionViewDataSource!
-    private var goToCharactersListFromEpisode: ((String) -> Void)? {
+    private var goToEpisodesListFromDetails: (([String]) -> Void)? {
         didSet {
-            dataSource.updateGoToCharacterListFromEpisodeClosure(closure: goToCharactersListFromEpisode)
+            dataSource.updateGoToEpisodesListFromDetails(closure: goToEpisodesListFromDetails)
         }
     }
 
@@ -67,8 +67,8 @@ class CharacterDetailsView: UIView {
         collectionView.delegate = dataSource
     }
 
-    func updateGoToCharactersListFromEpisodeClosure(closure: ((String) -> Void)? = nil) {
-        goToCharactersListFromEpisode = closure
+    func updateGoToEpisodesListFromDetailsClosure(closure: (([String]) -> Void)? = nil) {
+        goToEpisodesListFromDetails = closure
     }
 
     func updateGoToCharactersListFromLocationClosure(closure: ((String) -> Void)? = nil) {

@@ -17,9 +17,7 @@ class CharacterListView: UIView {
         }
     }
 
-    var getCharactersFromEpisode: ((String) -> Void)? {
-        didSet {}
-    }
+    var getCharactersFromEpisode: (([String]) -> Void)?
 
     var getCharactersFromPage: ((String?) -> Void)? {
         didSet {
@@ -35,7 +33,6 @@ class CharacterListView: UIView {
 
     func updateModel(models: CharacterSectionModel) {
         dataSource.updateModel(models: models)
-        tableView.reloadData()
     }
 
     func updateGoToDetailsClosure(closure: ((CharacterCellConfigurator) -> Void)? = nil) {
@@ -46,7 +43,7 @@ class CharacterListView: UIView {
         getCharactersFromPage = closure
     }
 
-    func updateGetCharactersFromEpisodeClosure(closure: ((String) -> Void)? = nil) {
+    func updateGetCharactersFromEpisodeClosure(closure: (([String]) -> Void)? = nil) {
         getCharactersFromEpisode = closure
     }
 

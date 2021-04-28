@@ -11,5 +11,6 @@ enum ApplicationAssembley {
     static let shared = Assembler([ApplicationCoordinatorAssembly(),
                                    CharacterListModuleAssembly(),
                                    CharacterListCoordinatorAssembly(),
-                                   CharacterDetailsModuleAssembly()])
+                                   CharacterDetailsModuleAssembly(),
+                                   EpisodeListModuleAssembly()])
 }

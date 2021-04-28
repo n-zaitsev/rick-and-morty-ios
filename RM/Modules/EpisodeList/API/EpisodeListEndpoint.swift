@@ -1,17 +1,17 @@
 //
-//  CharacterDetailsEndpoint.swift
+//  EpisodeListEndpoint.swift
 //  RM
 //
-//  Created by Импрув on 23.04.2021.
+//  Created by Импрув on 28.04.2021.
 //
 
 import Alamofire
 import Foundation
 
-enum CharacterDetailsEndpoint: APIConfiguration {
-    case getCharacterWithId(_ id: String)
+enum EpisodeListEndpoint: APIConfiguration {
+//    case getCharactersIdsWithEpisode(_ episode: String)
+    case getEpisodesWitdIds(_ ids: [String])
     case getEpisodeWithId(_ id: String)
-    case getLocationWithId(_ id: String)
 
     var method: HTTPMethod {
         switch self {
@@ -22,12 +22,10 @@ enum CharacterDetailsEndpoint: APIConfiguration {
 
     var path: String {
         switch self {
-        case let .getCharacterWithId(id):
-            return RequestURLs.characters + id
+        case let .getEpisodesWitdIds(ids):
+            return RequestURLs.episodes + "\(ids)"
         case let .getEpisodeWithId(id):
             return RequestURLs.episodes + id
-        case let .getLocationWithId(id):
-            return RequestURLs.locations + id
         }
     }
 

@@ -29,6 +29,7 @@ class CharacterTableViewDataSource: NSObject {
 
     func updateModel(models: CharacterSectionModel) {
         self.models = models
+        tableView?.reloadData()
     }
 }
 

@@ -34,7 +34,7 @@ class CharacterListViewModel: NSObject {
 
     func getCharactersFromEpisode(_ episodeId: String) {
         var charactersIds = [String]()
-        CharacterDetailsAPIClient.getEpisodeWithId(episodeId) { result in
+        EpisodeListAPIClient.getEpisodeWithId(episodeId) { result in
             switch result {
             case let .failure(error):
                 print(error.localizedDescription)
@@ -49,11 +49,11 @@ class CharacterListViewModel: NSObject {
                         print(error.localizedDescription)
                         self.didError?()
                     case let .success(characterResponse):
-                        self.models.title = episode.name
-                        self.models.nextPage = nil
                         self.models.characters = characterResponse.map { character -> CharacterCellConfigurator in
                             CharacterCellModel(character: character)
                         }
+                        self.models.nextPage = nil
+                        self.models.title = episode.name
                         self.didUpdate?()
                     }
                 }

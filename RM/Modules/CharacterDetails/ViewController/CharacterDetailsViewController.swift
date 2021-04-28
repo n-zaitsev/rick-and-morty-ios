@@ -11,16 +11,16 @@ import UIKit
 class CharacterDetailsViewController: UIViewController {
     var viewModel: CharacterDetailsViewModel!
     @IBOutlet var rootView: CharacterDetailsView!
-    var goToCharactersListFromEpisode: ((String) -> Void)?
-    var goToCharactersListFromLocation: ((String) -> Void)?
+    var goToEpisodesListFromDetails: (([String]) -> Void)?
+    var goToCharactersListFromDetails: ((String) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Decoration
         rootView.decorate()
-        rootView.updateGoToCharactersListFromEpisodeClosure(closure: goToCharactersListFromEpisode)
-        rootView.updateGoToCharactersListFromLocationClosure(closure: goToCharactersListFromLocation)
+        rootView.updateGoToEpisodesListFromDetailsClosure(closure: goToEpisodesListFromDetails)
+        rootView.updateGoToCharactersListFromLocationClosure(closure: goToCharactersListFromDetails)
         bindToViewModel()
     }
 

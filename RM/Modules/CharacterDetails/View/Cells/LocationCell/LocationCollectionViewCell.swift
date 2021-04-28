@@ -14,7 +14,7 @@ class LocationCollectionViewCell: UICollectionViewCell {
         let itemLayout = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .fractionalHeight(0.2))
+                                               heightDimension: .fractionalHeight(0.25))
         let groupLayout = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
                                                            subitems: [itemLayout])
 

@@ -20,6 +20,10 @@ protocol CharacterCellConfigurator: CellConfigurator {
     var episodesId: [String] { get }
 }
 
+protocol EpisodesCellConfigurator: CellConfigurator {
+    var episodesIds: [String] { get }
+}
+
 protocol EpisodeCellConfigurator: CellConfigurator {
     var episodeId: String { get }
 }

@@ -11,6 +11,7 @@ import UIKit
 class CharacterListCoordinator: BaseCoordinator {
     var characterListModuleFactory: ModuleFactory<CharacterListViewController>!
     var characterDetailsModuleFactory: ModuleFactory<CharacterDetailsViewController>!
+    var episodesListModuleFactory: ModuleFactory<EpisodeListViewController>!
     override func start() {
         // Decoration part
         characterListModuleFactory.produceRoot { vc in
@@ -27,15 +28,20 @@ class CharacterListCoordinator: BaseCoordinator {
     private func openDetailsPage(from: UIViewController, model: CharacterCellConfigurator) {
         characterDetailsModuleFactory.defaultProduce(from: from, disableBackText: false) { _, cdvc in
             cdvc.viewModel.getCharacterDetails(model: model)
-            cdvc.goToCharactersListFromEpisode = { [self] episodeId in
-                characterListModuleFactory.defaultProduce(from: cdvc, disableBackText: false) { _, cvc in
-                    cvc.viewModel.getCharactersFromEpisode(episodeId)
-                    cvc.goToDetails = { [self] model in
-                        self.openDetailsPage(from: cvc, model: model)
+            cdvc.goToEpisodesListFromDetails = { [self] _ in
+                episodesListModuleFactory.defaultProduce(from: cdvc, disableBackText: false) { _, elvc in
+                    elvc.viewModel.getEpisodesWithIds(model.episodesId)
+                    elvc.goToCharactersListFromEpisodes = { [self] episodeId in
+                        characterListModuleFactory.defaultProduce(from: elvc, disableBackText: false) { _, cvc in
+                            cvc.viewModel.getCharactersFromEpisode(episodeId)
+                            cvc.goToDetails = { [self] model in
+                                self.openDetailsPage(from: cvc, model: model)
+                            }
+                        }
                     }
                 }
             }
-            cdvc.goToCharactersListFromLocation = { [self] locationId in
+            cdvc.goToCharactersListFromDetails = { [self] locationId in
                 characterListModuleFactory.defaultProduce(from: cdvc, disableBackText: false) { _, cvc in
                     cvc.viewModel.getCharactersFromLocation(locationId)
                     cvc.goToDetails = { [self] model in

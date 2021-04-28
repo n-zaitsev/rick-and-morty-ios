@@ -21,14 +21,6 @@ class CharacterDetailsAPIClient {
         performRequest(route: CharacterDetailsEndpoint.getCharacterWithId(id), completion: completion)
     }
 
-    static func getEpisodesWithIds(_ ids: [String], completion: @escaping (Result<EpisodesResponse, AFError>) -> Void) {
-        performRequest(route: CharacterDetailsEndpoint.getEpisodesWitdIds(ids), completion: completion)
-    }
-
-    static func getEpisodeWithId(_ id: String, completion: @escaping (Result<Episode, AFError>) -> Void) {
-        performRequest(route: CharacterDetailsEndpoint.getEpisodeWithId(id), completion: completion)
-    }
-
     static func getLocationWithId(_ id: String, completion: @escaping (Result<Location, AFError>) -> Void) {
         performRequest(route: CharacterDetailsEndpoint.getLocationWithId(id), completion: completion)
     }

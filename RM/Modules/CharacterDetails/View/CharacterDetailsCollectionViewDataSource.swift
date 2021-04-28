@@ -15,15 +15,15 @@ class CharacterDetailsCollectionViewDataSource: NSObject {
         }
     }
 
-    private var goToCharactersListFromEpisode: ((String) -> Void)?
+    private var goToEpisodesListFromDetails: (([String]) -> Void)?
     private var goToCharactersListFromLocation: ((String) -> Void)?
 
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
     }
 
-    func updateGoToCharacterListFromEpisodeClosure(closure: ((String) -> Void)?) {
-        goToCharactersListFromEpisode = closure
+    func updateGoToEpisodesListFromDetails(closure: (([String]) -> Void)?) {
+        goToEpisodesListFromDetails = closure
     }
 
     func updateGoToCharactersListFromLocationClosure(closure: ((String) -> Void)? = nil) {
@@ -41,8 +41,8 @@ extension CharacterDetailsCollectionViewDataSource: UICollectionViewDelegate {
         switch section {
         case .episodes:
             collectionView.deselectItem(at: indexPath, animated: true)
-            if let model = model.models[indexPath.section][indexPath.row] as? EpisodeCellConfigurator {
-                goToCharactersListFromEpisode?(model.episodeId)
+            if let model = model.models[indexPath.section][indexPath.row] as? EpisodesCellConfigurator {
+                goToEpisodesListFromDetails?(model.episodesIds)
             }
         case .location:
             collectionView.deselectItem(at: indexPath, animated: true)

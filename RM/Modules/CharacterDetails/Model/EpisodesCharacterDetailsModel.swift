@@ -7,14 +7,12 @@
 
 import Foundation
 
-class EpisodesCharacterDetailsModel: NSObject, EpisodeCellConfigurator {
-    var episodeId: String
+class EpisodesCharacterDetailsModel: NSObject, EpisodesCellConfigurator {
+    var episodesIds: [String]
     var name: String
-    var airDate: String
 
-    init(episode: Episode) {
-        name = episode.name
-        airDate = episode.airDate
-        episodeId = String(episode.id)
+    init(name: String, episodesIds: [String]) {
+        self.name = name
+        self.episodesIds = episodesIds
     }
 }

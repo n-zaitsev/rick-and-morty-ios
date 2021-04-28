@@ -9,11 +9,7 @@
 import Foundation
 
 class CharacterDetailsViewModel: NSObject {
-    var model = SectionDetailsModels(name: "", models: [[CellConfigurator]]()) {
-        didSet {
-            didUpdate?()
-        }
-    }
+    var model = SectionDetailsModels(name: "", models: [[CellConfigurator]]())
 
     var didUpdate: (() -> Void)?
 
@@ -44,21 +40,11 @@ class CharacterDetailsViewModel: NSObject {
             }
             group.leave()
         }
-        group.enter()
-        CharacterDetailsAPIClient.getEpisodesWithIds(model.episodesId) { result in
-            switch result {
-            case let .failure(error):
-                print(error.localizedDescription)
-            case let .success(episodesDetails):
-                episodes = episodesDetails.map { episode -> CellConfigurator in
-                    EpisodesCharacterDetailsModel(episode: episode)
-                }
-            }
-            group.leave()
-        }
+        episodes.append(EpisodesCharacterDetailsModel(name: "Episodes", episodesIds: model.episodesId))
         group.notify(queue: DispatchQueue.main) {
             self.model.name = title
             self.model.models = [head, location, episodes]
+            self.didUpdate?()
         }
     }
 }

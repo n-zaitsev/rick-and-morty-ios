@@ -13,7 +13,7 @@ class HeadCollectionViewCell: UICollectionViewCell {
                                               heightDimension: .fractionalHeight(1))
         let itemLayout = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .fractionalHeight(0.5))
+                                               heightDimension: .fractionalHeight(0.45))
         let groupLayout = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                              subitems: [itemLayout])
 
