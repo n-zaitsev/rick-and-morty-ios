@@ -9,7 +9,7 @@ import UIKit
 
 class CharacterDetailsCollectionViewDataSource: NSObject {
     private weak var collectionView: UICollectionView?
-    private var models = [[CellConfigurator]]() {
+    private var model = SectionDetailsModels(name: "", models: [[CellConfigurator]]()) {
         didSet {
             collectionView?.reloadData()
         }
@@ -30,8 +30,8 @@ class CharacterDetailsCollectionViewDataSource: NSObject {
         goToCharactersListFromLocation = closure
     }
 
-    func updateModels(_ models: [[CellConfigurator]]) {
-        self.models = models
+    func updateModels(_ models: SectionDetailsModels) {
+        model = models
     }
 }
 
@@ -41,12 +41,12 @@ extension CharacterDetailsCollectionViewDataSource: UICollectionViewDelegate {
         switch section {
         case .episodes:
             collectionView.deselectItem(at: indexPath, animated: true)
-            if let model = models[indexPath.section][indexPath.row] as? EpisodeCellConfigurator {
+            if let model = model.models[indexPath.section][indexPath.row] as? EpisodeCellConfigurator {
                 goToCharactersListFromEpisode?(model.episodeId)
             }
         case .location:
             collectionView.deselectItem(at: indexPath, animated: true)
-            if let model = models[indexPath.section][indexPath.row] as? LocationCellConfigurator {
+            if let model = model.models[indexPath.section][indexPath.row] as? LocationCellConfigurator {
                 goToCharactersListFromLocation?(model.locationId)
             }
         default:
@@ -57,18 +57,18 @@ extension CharacterDetailsCollectionViewDataSource: UICollectionViewDelegate {
 
 extension CharacterDetailsCollectionViewDataSource: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        models[section].count
+        model.models[section].count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let model = models[indexPath.section][indexPath.row]
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.reuseIndentifier, for: indexPath) as? ConfigurableCollectionRow {
-            return cell.configureWith(model)
+        let item = model.models[indexPath.section][indexPath.row]
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.reuseIndentifier, for: indexPath) as? ConfigurableCollectionRow {
+            return cell.configureWith(item)
         }
         return UICollectionViewCell()
     }
 
     func numberOfSections(in _: UICollectionView) -> Int {
-        models.count
+        model.models.count
     }
 }

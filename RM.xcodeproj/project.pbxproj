@@ -58,6 +58,7 @@
 		81EF6F718A350E28C3C01D19 /* CharacterDetailsModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435496ABB51DAE467716BF5 /* CharacterDetailsModuleAssembly.swift */; };
 		9AA75732CDDC377CD19E86EF /* CharacterListCoordinatorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62544155871770F9506F95CB /* CharacterListCoordinatorCoordinator.swift */; };
 		CE3EDCA82637034500D3B289 /* CharacterDetailsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EDCA72637034400D3B289 /* CharacterDetailsCollectionViewDataSource.swift */; };
+		CE3EDCD126385CA700D3B289 /* SectionDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3EDCD026385CA700D3B289 /* SectionDetailsModels.swift */; };
 		D6A527D133EEAFC669CBACD6 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B74AD935D33FDC3B7DEC87 /* ApplicationCoordinator.swift */; };
 		DDE466BB2C0CAF8B5749248B /* CharacterListCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541FAF263EB0A999954A04D8 /* CharacterListCoordinatorAssembly.swift */; };
 		E9BBD057C3A7AF2D5D0563A8 /* ApplicationCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9C67568C6B899D1A02036B /* ApplicationCoordinatorAssembly.swift */; };
@@ -115,6 +116,7 @@
 		8D9C67568C6B899D1A02036B /* ApplicationCoordinatorAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		A681664164AAA94BEEDA000E /* CharacterListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		CE3EDCA72637034400D3B289 /* CharacterDetailsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		CE3EDCD026385CA700D3B289 /* SectionDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailsModels.swift; sourceTree = "<group>"; };
 		E8B74AD935D33FDC3B7DEC87 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		EB928BE9EAF1E5EE2FD86C46 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -310,6 +312,7 @@
 				56DBE3812632BED400449E4E /* HeadCharacterDetailsModel.swift */,
 				56DBE3842632BEF100449E4E /* LocationCharacterDetailsModel.swift */,
 				56DBE3872632BF0100449E4E /* EpisodesCharacterDetailsModel.swift */,
+				CE3EDCD026385CA700D3B289 /* SectionDetailsModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				563565A2262D6A490048B546 /* CharacteCellModel.swift in Sources */,
 				56DBE3A42632CA0600449E4E /* HeadCollectionViewCell.swift in Sources */,
 				56DBE3852632BEF100449E4E /* LocationCharacterDetailsModel.swift in Sources */,
+				CE3EDCD126385CA700D3B289 /* SectionDetailsModels.swift in Sources */,
 				563D6FE626380B6F004DC32C /* String+getCharacterIdFromUrl.swift in Sources */,
 				2DA7415C7CC74ACB4A8B7BAA /* CharacterListModuleAssembly.swift in Sources */,
 				56DBE3932632C27B00449E4E /* CharacterDeatilsAPIClient.swift in Sources */,

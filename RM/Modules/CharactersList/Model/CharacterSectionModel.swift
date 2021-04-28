@@ -8,6 +8,7 @@
 import Foundation
 
 struct CharacterSectionModel {
+    var title: String
     var characters: [CharacterCellConfigurator]
     var nextPage: String?
 }

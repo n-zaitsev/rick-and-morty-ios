@@ -9,7 +9,7 @@
 import Foundation
 
 class CharacterListViewModel: NSObject {
-    var models = CharacterSectionModel(characters: [], nextPage: "1")
+    var models = CharacterSectionModel(title: "All characters", characters: [], nextPage: "1")
 
     var didUpdate: (() -> Void)?
     var didError: (() -> Void)?
@@ -49,6 +49,7 @@ class CharacterListViewModel: NSObject {
                         print(error.localizedDescription)
                         self.didError?()
                     case let .success(characterResponse):
+                        self.models.title = episode.name
                         self.models.nextPage = nil
                         self.models.characters = characterResponse.map { character -> CharacterCellConfigurator in
                             CharacterCellModel(character: character)
@@ -77,6 +78,7 @@ class CharacterListViewModel: NSObject {
                         print(error.localizedDescription)
                         self.didError?()
                     case let .success(characterResponse):
+                        self.models.title = location.name
                         self.models.nextPage = nil
                         self.models.characters = characterResponse.map { character -> CharacterCellConfigurator in
                             CharacterCellModel(character: character)

@@ -13,7 +13,7 @@ class HeadCollectionViewCell: UICollectionViewCell {
                                               heightDimension: .fractionalHeight(1))
         let itemLayout = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .fractionalHeight(0.25))
+                                               heightDimension: .fractionalHeight(0.5))
         let groupLayout = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                              subitems: [itemLayout])
 
@@ -22,9 +22,13 @@ class HeadCollectionViewCell: UICollectionViewCell {
         return NSCollectionLayoutSection(group: groupLayout)
     }
 
-    @IBOutlet private var nameLabel: UILabel!
-
     @IBOutlet private var portraitImageView: UIImageView!
+    @IBOutlet private var speciesLabel: UILabel!
+    @IBOutlet private var speciesNameLabel: UILabel!
+    @IBOutlet private var genderLabel: UILabel!
+    @IBOutlet private var genderNameLabel: UILabel!
+    @IBOutlet private var statusLabel: UILabel!
+    @IBOutlet private var statusNameLabel: UILabel!
 }
 
 extension HeadCollectionViewCell: ConfigurableCollectionRow {
@@ -32,7 +36,12 @@ extension HeadCollectionViewCell: ConfigurableCollectionRow {
         if let configurator = configurator as? HeadCharacterDetailsModel {
             portraitImageView.kf.setImage(with: URL(string: configurator.portrait),
                                           placeholder: UIImage(named: "PlaceholderImage"))
-            nameLabel.text = configurator.name
+            speciesLabel.text = "Species"
+            genderLabel.text = "Gender"
+            statusLabel.text = "Status"
+            genderNameLabel.text = configurator.gender
+            statusNameLabel.text = configurator.status
+            speciesNameLabel.text = configurator.species
         }
         return self
     }

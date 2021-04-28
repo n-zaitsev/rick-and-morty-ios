@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class CharacterTableViewDataSource: NSObject {
-    private var models = CharacterSectionModel(characters: [], nextPage: "1")
+    private var models = CharacterSectionModel(title: "All characters", characters: [], nextPage: "1")
     private weak var tableView: UITableView?
     var goToDetails: ((CharacterCellConfigurator) -> Void)?
     var getCharactersFromPage: ((String?) -> Void)?

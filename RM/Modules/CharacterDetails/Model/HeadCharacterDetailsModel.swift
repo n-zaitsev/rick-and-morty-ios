@@ -8,11 +8,15 @@
 import Foundation
 
 class HeadCharacterDetailsModel: NSObject, CellConfigurator {
-    var name: String
     var portrait: String
+    var species: String
+    var gender: String
+    var status: String
 
     init(character: Character) {
-        name = character.name
         portrait = character.image
+        gender = character.gender.rawValue
+        status = character.status.rawValue
+        species = character.species.rawValue
     }
 }

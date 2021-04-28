@@ -9,7 +9,7 @@
 import UIKit
 
 class CharacterDetailsView: UIView {
-    private var models = [[CellConfigurator]]() {
+    private var models = SectionDetailsModels(name: "", models: [[CellConfigurator]]()) {
         didSet {
             dataSource.updateModels(models)
         }
@@ -75,7 +75,7 @@ class CharacterDetailsView: UIView {
         goToCharactersListFromLocation = closure
     }
 
-    func updateModels(_ models: [[CellConfigurator]]) {
+    func updateModels(_ models: SectionDetailsModels) {
         self.models = models
     }
 }

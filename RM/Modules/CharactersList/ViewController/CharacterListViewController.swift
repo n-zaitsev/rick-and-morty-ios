@@ -27,6 +27,7 @@ class CharacterListViewController: UIViewController {
     private func bindToViewModel() {
         viewModel.didUpdate = { [weak self] in
             self?.viewModelDidUpdate()
+            self?.navigationItem.title = self?.viewModel.models.title
         }
 
         viewModel.didError = { [weak self] in

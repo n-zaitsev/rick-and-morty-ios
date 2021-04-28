@@ -9,7 +9,7 @@
 import Foundation
 
 class CharacterDetailsViewModel: NSObject {
-    var models: [[CellConfigurator]] = [] {
+    var model = SectionDetailsModels(name: "", models: [[CellConfigurator]]()) {
         didSet {
             didUpdate?()
         }
@@ -26,12 +26,14 @@ class CharacterDetailsViewModel: NSObject {
         var head = [CellConfigurator]()
         var episodes = [CellConfigurator]()
         var location = [CellConfigurator]()
+        var title = ""
         group.enter()
         CharacterDetailsAPIClient.getCharacterWithId(model.characterId) { result in
             switch result {
             case let .failure(error):
                 print(error.localizedDescription)
             case let .success(character):
+                title = character.name
                 let headCell = HeadCharacterDetailsModel(character: character)
                 head.append(headCell)
                 let origin = LocationCharacterDetailsModel(location: character.origin,
@@ -55,7 +57,8 @@ class CharacterDetailsViewModel: NSObject {
             group.leave()
         }
         group.notify(queue: DispatchQueue.main) {
-            self.models = [head, location, episodes]
+            self.model.name = title
+            self.model.models = [head, location, episodes]
         }
     }
 }

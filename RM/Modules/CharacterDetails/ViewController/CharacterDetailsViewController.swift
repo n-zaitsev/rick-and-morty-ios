@@ -24,18 +24,14 @@ class CharacterDetailsViewController: UIViewController {
         bindToViewModel()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-    }
-
     private func bindToViewModel() {
         viewModel.didUpdate = { [weak self] in
             self?.viewModelDidUpdate()
+            self?.navigationItem.title = self?.viewModel.model.name
         }
     }
 
     private func viewModelDidUpdate() {
-        rootView.updateModels(viewModel.models)
+        rootView.updateModels(viewModel.model)
     }
 }

@@ -48,7 +48,7 @@
                 <outlet property="airDateLabel" destination="vFj-V9-QMA" id="fNp-O5-iJr"/>
                 <outlet property="nameLabel" destination="Ef9-Tq-KzA" id="iRO-1l-Asc"/>
             </connections>
-            <point key="canvasLocation" x="177.536231884058" y="92.075892857142847"/>
+            <point key="canvasLocation" x="-183" y="92"/>
         </collectionViewCell>
     </objects>
 </document>
